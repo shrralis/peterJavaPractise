@@ -10,27 +10,23 @@ import java.time.LocalDateTime;
 @Table(name = "orders")
 public class Orders {
 
+    @Column(name = "orders_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "full_price")
-    @NotNull
+    @Column(name = "full_price", nullable = false)
     private double fullPrice;
 
-    @Column(name = "time")
-    @NotNull
+    @Column(name = "time", nullable = false)
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private LocalDateTime time;
 
-    @Column(name = "users_id")
-    @NotNull
+    @Column(name = "users_id", nullable = false)
     @ManyToOne
-    @JoinColumn(name = "id")
     private Users user;
 
-    @Column(name = "status")
-    @NotNull
+    @Column(name = "status", nullable = false)
     private Status status;
 
     public int getId() {

@@ -9,42 +9,48 @@ import java.util.Set;
 @Table(name = "users")
 public class Users {
 
-    enum Type{
+    enum Type {
         CUSTOMER,
         MODERATOR,
         ADMINISTRATOR
     }
 
+    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
-    @NotNull
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "login")
-    @NotNull
+    @Column(name = "login", nullable = false)
     private String login;
 
-    @Column(name = "password")
-    @NotNull
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "phone")
-    @NotNull
+    @Column(name = "phone", nullable = false)
     private String phone;
 
-    @Column(name = "email")
-    @NotNull
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "type")
-    @NotNull
+    @Column(name = "type", nullable = false)
     private Type type;
 
     @OneToMany(mappedBy = "user")
     private Set<Orders> orders;
+
+    @OneToMany(mappedBy = "primaryKey.users", cascade = CascadeType.ALL)
+    private Set<ItemOrders> itemOrders;
+
+    public Set<ItemOrders> getItemOrders() {
+        return itemOrders;
+    }
+
+    public void setItemOrders(Set<ItemOrders> itemOrders) {
+        this.itemOrders = itemOrders;
+    }
 
     public int getId() {
         return id;
