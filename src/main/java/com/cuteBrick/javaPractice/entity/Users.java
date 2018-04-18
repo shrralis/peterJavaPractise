@@ -9,12 +9,6 @@ import java.util.Set;
 @Table(name = "users")
 public class Users {
 
-    enum Type {
-        CUSTOMER,
-        MODERATOR,
-        ADMINISTRATOR
-    }
-
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -127,5 +121,11 @@ public class Users {
                 ", email='" + email + '\'' +
                 ", type=" + type +
                 ']';
+    }
+
+    enum Type {
+        CUSTOMER,
+        MODERATOR,
+        ADMINISTRATOR
     }
 }

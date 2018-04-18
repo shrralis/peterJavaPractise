@@ -11,12 +11,12 @@ import javax.persistence.*;
             joinColumns = @JoinColumn(name = "orders_id")) })
 public class ItemOrders {
 
+    @EmbeddedId
     private ItemsOrdersId primaryKey = new ItemsOrdersId();
 
     @Column(name = "amount", nullable = false)
     private int amount;
 
-    @EmbeddedId
     public ItemsOrdersId getPrimaryKey(){
         return primaryKey;
     }
