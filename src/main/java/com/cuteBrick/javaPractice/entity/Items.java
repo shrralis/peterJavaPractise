@@ -27,7 +27,7 @@ public class Items {
     @Column(name = "disc", nullable = false)
     private double disc;
 
-    @Column(name = "cat_id", nullable = false)
+    //@Column(name = "cat_id", nullable = false)
     @ManyToOne
     private Categories category;
 
@@ -38,14 +38,14 @@ public class Items {
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private LocalDateTime modifiedAt;
 
-    @Column(name = "modified_by", nullable = false)
+    //@Column(name = "modified_by", nullable = false)
     @ManyToOne
     private Users modifiedBy;
 
     @Column(name = "is_removed", nullable = false)
     private boolean isRemoved;
 
-    @Column(name = "units", nullable = false)
+    //@Column(name = "units", nullable = false)
     @ManyToOne
     private Units units;
 

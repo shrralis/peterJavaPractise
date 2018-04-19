@@ -35,16 +35,7 @@ public class Users {
     @OneToMany(mappedBy = "user")
     private Set<Orders> orders;
 
-    @OneToMany(mappedBy = "primaryKey.users", cascade = CascadeType.ALL)
-    private Set<ItemOrders> itemOrders;
 
-    public Set<ItemOrders> getItemOrders() {
-        return itemOrders;
-    }
-
-    public void setItemOrders(Set<ItemOrders> itemOrders) {
-        this.itemOrders = itemOrders;
-    }
 
     public int getId() {
         return id;

@@ -3,13 +3,16 @@ package com.cuteBrick.javaPractice.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 @Embeddable
-public class ItemsOrdersId {
+public class ItemsOrdersId implements Serializable{
+    @ManyToOne(cascade = CascadeType.ALL)
     private Items items;
-    private Orders orders;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    private Orders orders;
+
     public Items getItems(){
         return items;
     }
@@ -18,7 +21,6 @@ public class ItemsOrdersId {
         this.items = items;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
     public Orders getOrders(){
         return orders;
     }

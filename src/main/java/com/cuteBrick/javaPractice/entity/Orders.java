@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -22,12 +23,23 @@ public class Orders {
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private LocalDateTime time;
 
-    @Column(name = "users_id", nullable = false)
+    //@Column(name = "users_id", nullable = false)
     @ManyToOne
     private Users user;
 
     @Column(name = "status", nullable = false)
     private Status status;
+
+    @OneToMany(mappedBy = "primaryKey.orders", cascade = CascadeType.ALL)
+    private Set<ItemOrders> itemOrders;
+
+    public Set<ItemOrders> getItemOrders() {
+        return itemOrders;
+    }
+
+    public void setItemOrders(Set<ItemOrders> itemOrders) {
+        this.itemOrders = itemOrders;
+    }
 
     public int getId() {
         return id;
