@@ -1,6 +1,9 @@
 package com.cuteBrick.javaPractice.config;
 
+import com.cuteBrick.javaPractice.entity.*;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -8,8 +11,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -69,5 +74,39 @@ public class HibConfig {
         HibernateTransactionManager txmanager = new HibernateTransactionManager();
         txmanager.setSessionFactory(s);
         return txmanager;
+    }
+
+    @Bean
+    public DataSource getDataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
+        dataSource.setUsername("root");
+        dataSource.setPassword("root");
+
+        return dataSource;
+    }
+
+    @Bean
+    public SessionFactory getSessionFactory() {
+        return new LocalSessionFactoryBuilder(getDataSource())
+                .addAnnotatedClasses(Categories.class)
+                .addAnnotatedClasses(Items.class)
+                .addAnnotatedClasses(ItemOrders.class)
+                .addAnnotatedClasses(Orders.class)
+                .addAnnotatedClasses(Units.class)
+                .addAnnotatedClasses(Users.class)
+                .buildSessionFactory();
+    }
+
+    @Bean
+    public HibernateTemplate getHibernateTemplate() {
+        return new HibernateTemplate(getSessionFactory());
+    }
+
+    @Bean
+    public HibernateTransactionManager getHibernateTransManager() {
+        return new HibernateTransactionManager(getSessionFactory());
     }
 }
