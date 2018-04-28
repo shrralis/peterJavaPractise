@@ -1,6 +1,5 @@
 package com.cuteBrick.javaPractice.entity;
 
-import com.sun.istack.internal.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -23,7 +22,6 @@ public class Orders {
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private LocalDateTime time;
 
-    //@Column(name = "users_id", nullable = false)
     @ManyToOne
     private Users user;
 

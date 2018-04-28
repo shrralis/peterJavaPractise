@@ -1,7 +1,5 @@
 package com.cuteBrick.javaPractice.entity;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -34,7 +32,6 @@ public class Users {
 
     @OneToMany(mappedBy = "user")
     private Set<Orders> orders;
-
 
 
     public int getId() {

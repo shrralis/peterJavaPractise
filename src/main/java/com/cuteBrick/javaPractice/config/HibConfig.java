@@ -1,3 +1,4 @@
+/*
 package com.cuteBrick.javaPractice.config;
 
 import com.cuteBrick.javaPractice.entity.*;
@@ -20,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-@Configuration
+//@Configuration
 @EnableTransactionManagement
 @ComponentScan({"com.cuteBrick.javaPractice.config"})
 @PropertySource(value = { "classpath:app.properties" })
@@ -41,14 +42,16 @@ public class HibConfig {
     @Value("${db.hibFormatSQL}")
     private String formatSQL;
 
-    @Bean
+   */
+/* @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan(new String[]{"com.cuteBrick.javaPractice.entity"});
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
-    }
+    }*//*
+
 
     @Bean
     public DataSource dataSource() {
@@ -62,6 +65,7 @@ public class HibConfig {
 
     private Properties hibernateProperties() {
         Properties properties = new Properties();
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"+hibDialect);
         properties.put("hibernate.dialect", hibDialect);
         properties.put("hibernate.show_sql", showSQL);
         properties.put("hibernate.format_sql", formatSQL);
@@ -109,4 +113,7 @@ public class HibConfig {
     public HibernateTransactionManager getHibernateTransManager() {
         return new HibernateTransactionManager(getSessionFactory());
     }
+
+
 }
+*/

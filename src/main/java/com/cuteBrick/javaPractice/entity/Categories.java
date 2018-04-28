@@ -24,7 +24,6 @@ public class Categories {
     @DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
     private LocalDateTime modifiedAt;
 
-    //@Column(name = "modified_by", nullable = false)
     @ManyToOne
     private Users modifiedBy;
 
