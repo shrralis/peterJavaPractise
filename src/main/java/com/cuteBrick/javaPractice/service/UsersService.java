@@ -6,11 +6,7 @@ import java.util.List;
 
 public interface UsersService {
 
-    void create(Users users);
-
-    void delete(Users users);
-
-    void update(Users users);
+    void edit(Users users);
 
     void authorize(String login, String pass);
 

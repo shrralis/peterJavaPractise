@@ -8,18 +8,9 @@ import java.util.List;
 
 @Service
 public class UsersServiceImpl implements UsersService{
-    @Override
-    public void create(Users users) {
-
-    }
 
     @Override
-    public void delete(Users users) {
-
-    }
-
-    @Override
-    public void update(Users users) {
+    public void edit(Users users) {
 
     }
 
