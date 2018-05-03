@@ -1,5 +1,6 @@
-package com.cuteBrick.javaPractice.dao;
+package com.cuteBrick.javaPractice.dao.impl;
 
+import com.cuteBrick.javaPractice.dao.UnitsDao;
 import com.cuteBrick.javaPractice.entity.Units;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public class UnitsDaoImpl implements UnitsDao {
 

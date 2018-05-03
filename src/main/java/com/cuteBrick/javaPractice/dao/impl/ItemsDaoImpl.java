@@ -1,5 +1,6 @@
-package com.cuteBrick.javaPractice.dao;
+package com.cuteBrick.javaPractice.dao.impl;
 
+import com.cuteBrick.javaPractice.dao.ItemsDao;
 import com.cuteBrick.javaPractice.entity.Items;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,13 +12,6 @@ import java.util.List;
 @Repository
 public class ItemsDaoImpl implements ItemsDao {
 
-//    private final HibernateTemplate hibernateTemplate;
-
-    /*@Autowired
-    public ItemsDaoImpl(HibernateTemplate hibernateTemplate) {
-        this.hibernateTemplate = hibernateTemplate;
-    }*/
-
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -25,38 +19,28 @@ public class ItemsDaoImpl implements ItemsDao {
         return this.sessionFactory.getCurrentSession();
     }
 
-
     @Override
     public Items getById(long id) {
         return getSession().get(Items.class, id);
-        /*return hibernateTemplate
-                .execute((org.hibernate.Session session) -> (Items) session
-                        .createQuery("FROM Items WHERE id = :id")
-                        .setParameter("id", id)
-                        .uniqueResult());*/
     }
 
     @Override
     public void delete(Items items) {
         getSession().delete(items);
-//        hibernateTemplate.delete(items);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public List<Items> findAllItems() {
         return getSession().createQuery("FROM Items").list();
-//        return (List<Items>) hibernateTemplate.find("FROM Items");
     }
 
     public void save(Items items)  {
         getSession().save(items);
-//        hibernateTemplate.save(items);
     }
 
     public void update(Items items) {
         getSession().update(items);
-//        hibernateTemplate.update(items);
     }
 
     @SuppressWarnings("unchecked")
@@ -65,10 +49,5 @@ public class ItemsDaoImpl implements ItemsDao {
         return getSession().createQuery("FROM Items WHERE LOWER (CONCAT(name, description)) LIKE LOWER (:word)")
                 .setParameter("word", "%" + word + "%")
                 .list();
-        /*return hibernateTemplate
-                .execute((org.hibernate.Session session) -> session
-                .createQuery("SELECT * FROM Items WHERE LOWER (CONCAT(name, description)) LIKE LOWER (:word)")
-                .setParameter("word", "%" + word + "%")
-                .list());*/
     }
 }

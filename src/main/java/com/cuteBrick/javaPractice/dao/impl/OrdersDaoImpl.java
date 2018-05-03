@@ -1,6 +1,6 @@
-package com.cuteBrick.javaPractice.dao;
+package com.cuteBrick.javaPractice.dao.impl;
 
-import com.cuteBrick.javaPractice.entity.Items;
+import com.cuteBrick.javaPractice.dao.OrdersDao;
 import com.cuteBrick.javaPractice.entity.Orders;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class OrdersDaoImpl implements OrdersDao{
+public class OrdersDaoImpl implements OrdersDao {
 
     @Autowired
     SessionFactory sessionFactory;
