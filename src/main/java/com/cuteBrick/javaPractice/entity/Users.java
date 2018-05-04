@@ -111,7 +111,7 @@ public class Users {
                 ']';
     }
 
-    enum Type {
+    public enum Type {
         CUSTOMER,
         MODERATOR,
         ADMINISTRATOR

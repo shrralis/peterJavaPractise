@@ -1,5 +1,6 @@
 package com.cuteBrick.javaPractice.service;
 
+import com.cuteBrick.javaPractice.dto.OrdersDto;
 import com.cuteBrick.javaPractice.entity.Categories;
 import com.cuteBrick.javaPractice.entity.Items;
 import com.cuteBrick.javaPractice.entity.Orders;
@@ -10,23 +11,25 @@ import java.util.List;
 
 public interface OrdersService {
 
-    void create(Orders orders);
+    void create(OrdersDto orders);
 
-    void delete(Orders orders);
+    void delete(OrdersDto orders);
 
-    void update(Orders orders);
+    void update(OrdersDto orders);
 
-    List<Orders> getByItem(Items items);
+    List<OrdersDto> getByItem(Items items);
 
-    Orders getById(long id);
+    OrdersDto getById(long id);
 
-    List<Orders> getByCategory(Categories categories);
+    List<OrdersDto> getByCategory(Categories categories);
 
-    List<Orders> getByStatus(String status);
+    List<OrdersDto> getByStatus(Orders.Status status);
 
-    List<Orders> getByUser(Users users);
+    List<OrdersDto> getByUser(Users users);
 
-    List<Orders> getFromTime(LocalDateTime ldt);
+    List<OrdersDto> getFromTime(LocalDateTime ldt);
 
-    List<Orders> getBeforeTime(LocalDateTime ldt);
+    List<OrdersDto> getBeforeTime(LocalDateTime ldt);
+
+    List<OrdersDto> getAll();
 }

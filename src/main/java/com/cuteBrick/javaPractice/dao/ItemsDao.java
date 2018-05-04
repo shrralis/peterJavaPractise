@@ -1,5 +1,6 @@
 package com.cuteBrick.javaPractice.dao;
 
+import com.cuteBrick.javaPractice.entity.Categories;
 import com.cuteBrick.javaPractice.entity.Items;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface ItemsDao {
     List<Items> findAllItems();
 
     List<Items> getByText(String text);
+
+    List<Items> getByCategory(Categories categories);
 }

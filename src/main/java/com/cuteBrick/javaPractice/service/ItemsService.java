@@ -1,5 +1,6 @@
 package com.cuteBrick.javaPractice.service;
 
+import com.cuteBrick.javaPractice.dto.ItemsDto;
 import com.cuteBrick.javaPractice.entity.Categories;
 import com.cuteBrick.javaPractice.entity.Items;
 
@@ -7,19 +8,19 @@ import java.util.List;
 
 public interface ItemsService {
 
-    void create(Items items);
+    void create(ItemsDto items);
 
-    void delete(Items items);
+    void delete(ItemsDto items);
 
-    void update(Items items);
+    void update(ItemsDto items);
 
-    Items getById(long id);
+    ItemsDto getById(long id);
 
-    List<Items> getByName(String name);
+    List<ItemsDto> getByName(String name);
 
-    List<Items> getAll();
+    List<ItemsDto> getAll();
 
-    void buy(Items items);
+    void buy(ItemsDto items);
 
-    List<Items> getByCategory(Categories categories);
+    List<ItemsDto> getByCategory(Categories categories);
 }

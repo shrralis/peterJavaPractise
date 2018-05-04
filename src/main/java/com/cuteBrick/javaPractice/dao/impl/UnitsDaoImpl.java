@@ -12,8 +12,6 @@ import java.util.List;
 @Repository
 public class UnitsDaoImpl implements UnitsDao {
 
-    /*@Autowired
-    HibernateTemplate hibernateTemplate;*/
     @Autowired
     SessionFactory sessionFactory;
 

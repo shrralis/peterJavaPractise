@@ -43,7 +43,6 @@ public class Items {
     @Column(name = "is_removed", nullable = false)
     private boolean isRemoved;
 
-    //@Column(name = "units", nullable = false)
     @ManyToOne
     private Units units;
 

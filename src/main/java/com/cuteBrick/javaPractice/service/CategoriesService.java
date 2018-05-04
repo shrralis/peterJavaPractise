@@ -1,20 +1,21 @@
 package com.cuteBrick.javaPractice.service;
 
+import com.cuteBrick.javaPractice.dto.CategoriesDto;
 import com.cuteBrick.javaPractice.entity.Categories;
 
 import java.util.List;
 
 public interface CategoriesService {
 
-    void create(Categories categories);
+    void create(CategoriesDto categories);
 
-    Categories getById(long id);
+    CategoriesDto getById(long id);
 
-    List<Categories> getByName(String name);
+    List<CategoriesDto> getByName(String name);
 
-    List<Categories> getAll();
+    List<CategoriesDto> getAll();
 
-    void update(Categories categories);
+    void update(CategoriesDto categories);
 
-    void delete(Categories categories);
+    void delete(CategoriesDto categories);
 }

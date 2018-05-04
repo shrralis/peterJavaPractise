@@ -1,24 +1,25 @@
 package com.cuteBrick.javaPractice.service;
 
+import com.cuteBrick.javaPractice.dto.UsersDto;
 import com.cuteBrick.javaPractice.entity.Users;
 
 import java.util.List;
 
 public interface UsersService {
 
-    void edit(Users users);
+    void edit(UsersDto users);
 
     void authorize(String login, String pass);
 
-    void register(Users users);
+    void register(UsersDto users);
 
-    Users getById(long id);
+    UsersDto getById(long id);
 
-    List<Users> getAll();
+    List<UsersDto> getAll();
 
-    void logOut(Users users);
+    void logOut(UsersDto users);
 
-    List<Users> getByLogin(String login);
+    List<UsersDto> getByLogin(String login);
 
-    List<Users> getByType(String type);
+    List<UsersDto> getByType(Users.Type type);
 }

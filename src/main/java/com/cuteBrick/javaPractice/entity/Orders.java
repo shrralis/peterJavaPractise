@@ -79,7 +79,7 @@ public class Orders {
         this.status = status;
     }
 
-    enum Status{
+    public enum Status{
         NEW,
         PENDING,
         PAYED,

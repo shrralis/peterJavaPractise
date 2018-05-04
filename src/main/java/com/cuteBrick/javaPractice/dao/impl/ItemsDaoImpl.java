@@ -1,6 +1,7 @@
 package com.cuteBrick.javaPractice.dao.impl;
 
 import com.cuteBrick.javaPractice.dao.ItemsDao;
+import com.cuteBrick.javaPractice.entity.Categories;
 import com.cuteBrick.javaPractice.entity.Items;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -48,6 +49,14 @@ public class ItemsDaoImpl implements ItemsDao {
     public List<Items> getByText(String word) {
         return getSession().createQuery("FROM Items WHERE LOWER (CONCAT(name, description)) LIKE LOWER (:word)")
                 .setParameter("word", "%" + word + "%")
+                .list();
+    }
+
+    @Override
+    public List<Items> getByCategory(Categories categories) {
+        int id = categories.getId();
+        return getSession().createQuery("FROM Items WHERE category=(:id)")
+                .setParameter("id", id)
                 .list();
     }
 }
